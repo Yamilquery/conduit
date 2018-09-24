@@ -43,4 +43,13 @@ defmodule ConduitWeb.Router do
     post "/users", UserController, :create
     put "/user", UserController, :update
   end
+
+  scope "/graphiql" do
+    pipe_through :api
+
+    forward "/", Absinthe.Plug.GraphiQL,
+      schema: ConduitWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: ConduitWeb.Endpoint}
+  end
 end
