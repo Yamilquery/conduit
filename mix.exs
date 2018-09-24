@@ -18,6 +18,7 @@ defmodule Conduit.Mixfile do
     [
       mod: {Conduit.Application, []},
       extra_applications: [
+        :absinthe,
         :logger,
         :runtime_tools,
         :eventstore,
@@ -30,6 +31,10 @@ defmodule Conduit.Mixfile do
 
   defp deps do
     [
+      {:absinthe, "~> 1.4.9"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_phoenix, "~> 1.4.0"},
+      {:absinthe_plug, "~> 1.4.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:comeonin, "~> 4.0"},
       {:commanded, "0.16.0", override: true},
